@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class Flying : MonoBehaviour
+public class BirdFlight : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float flapForce = 5f;   
+    public float fallTilt = -20f; 
+    Rigidbody2D rb;
+
+    void Awake()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // flap on space or mouse click 
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            rb.linearVelocity = Vector2.up * flapForce;
+
+        // when the bird falls I wanted a little tilt, so here it is
+        if (rb.linearVelocity.y < 0f)
+            transform.rotation = Quaternion.Euler(0f, 0f, fallTilt);
+        else
+            transform.rotation = Quaternion.identity;
     }
 }
