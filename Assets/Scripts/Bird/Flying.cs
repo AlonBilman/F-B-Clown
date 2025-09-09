@@ -13,8 +13,8 @@ public class BirdFlight : MonoBehaviour
 
     void Update()
     {
-        // flap on space or mouse click 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        // flap on space, mouse click, or up arrow
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             rb.linearVelocity = Vector2.up * flapForce;
 
         // when the bird falls I wanted a little tilt, so here it is

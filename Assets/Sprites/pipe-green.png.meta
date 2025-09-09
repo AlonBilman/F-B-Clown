@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36c1d74cd78ceb64bb30751f3a96d083
+guid: 7538933a3db631c4e8b018c37173de7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7765292873387770120
-    second: pipe-green_0
+      213: 1447325273499742591
+    second: pipe-green 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipe-green_0
+      name: pipe-green 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 52
-        height: 320
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 801862fd9bcd3cb60800000000000000
-      internalID: 7765292873387770120
+      spriteID: f71b5610baee51410800000000000000
+      internalID: 1447325273499742591
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pipe-green_0: 7765292873387770120
+      pipe-green 1_0: 1447325273499742591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
