@@ -9,14 +9,16 @@ public class BirdFlight : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Jump();
+        Jump(); //Jump at the start
     }
-
     void Update()
     {
-        // flap on space, mouse click, or up arrow
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            Jump();
+        if (GameManager.Instance.IsGameActive())
+        {
+            // flap on space, mouse click, or up arrow
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+                Jump();
+        }
 
         // when the bird falls I wanted a little tilt, so here it is
         if (rb.linearVelocity.y < 0f)
@@ -25,7 +27,6 @@ public class BirdFlight : MonoBehaviour
             transform.rotation = Quaternion.identity;
     }
 
-    // Add collision detection
     void OnTriggerEnter2D(Collider2D other)
     {
         GameManager.Instance.GameOver();
@@ -33,6 +34,6 @@ public class BirdFlight : MonoBehaviour
     
     private void Jump()
     {
-         rb.linearVelocity = Vector2.up * flapForce;
+        rb.linearVelocity = Vector2.up * flapForce;
     }
 }

@@ -5,13 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("References")]
     public GameObject menuCanvas;
     public GameObject gameOverCanvas;
     public GameObject pipeSpawner;
-    public Bird bird;
+    public GameObject bird;
 
-    private bool isGameActive = false;
+    private enum GameState { Menu, Playing, GameOver }
+    private GameState currentState;
 
     private void Awake()
     {
@@ -21,39 +21,58 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject); // optional
     }
 
     private void Start()
     {
-        menuCanvas.SetActive(true);
-        gameOverCanvas.SetActive(false);
-        pipeSpawner.SetActive(false);
-        bird.enabled = false;
+        SetState(GameState.Menu);
+    }
+
+    private void Update()
+    {
+        if (currentState == GameState.Menu && Input.anyKeyDown)
+        {
+            StartGame();
+        }
+        else if (currentState == GameState.GameOver && Input.anyKeyDown)
+        {
+            RestartGame();
+        }
     }
 
     public void StartGame()
     {
         menuCanvas.SetActive(false);
         pipeSpawner.SetActive(true);
-        bird.enabled = true;
-        isGameActive = true;
+        bird.SetActive(true);
+        SetState(GameState.Playing);
     }
 
     public void GameOver()
     {
         pipeSpawner.SetActive(false);
         gameOverCanvas.SetActive(true);
-        bird.enabled = false;
-        isGameActive = false;
+        bird.SetActive(false);
+        SetState(GameState.GameOver);
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public bool IsGameActive()
     {
-        return isGameActive;
+        return currentState == GameState.Playing;
+    }
+
+    private void SetState(GameState newState)
+    {
+        currentState = newState;
+
+        menuCanvas.SetActive(newState == GameState.Menu);
+        gameOverCanvas.SetActive(newState == GameState.GameOver);
+        pipeSpawner.SetActive(newState == GameState.Playing);
+        bird.SetActive(newState == GameState.Playing);
     }
 }
