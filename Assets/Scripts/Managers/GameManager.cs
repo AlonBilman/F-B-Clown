@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        ScoreManager.Instance.ResetScore();
         menuCanvas.SetActive(false);
         pipeSpawner.SetActive(true);
         bird.SetActive(true);

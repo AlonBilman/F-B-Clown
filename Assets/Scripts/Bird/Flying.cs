@@ -26,8 +26,7 @@ public class BirdFlight : MonoBehaviour
         else
             transform.rotation = Quaternion.identity;
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         GameManager.Instance.GameOver();
     }
