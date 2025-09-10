@@ -2,25 +2,37 @@ using UnityEngine;
 
 public class BirdFlight : MonoBehaviour
 {
-    public float flapForce = 5f;   
-    public float fallTilt = -20f; 
+    public float flapForce = 5f;
+    public float fallTilt = -20f;
     Rigidbody2D rb;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Jump();
     }
 
     void Update()
     {
         // flap on space, mouse click, or up arrow
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            rb.linearVelocity = Vector2.up * flapForce;
+            Jump();
 
         // when the bird falls I wanted a little tilt, so here it is
         if (rb.linearVelocity.y < 0f)
             transform.rotation = Quaternion.Euler(0f, 0f, fallTilt);
         else
             transform.rotation = Quaternion.identity;
+    }
+
+    // Add collision detection
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        GameManager.Instance.GameOver();
+    }
+    
+    private void Jump()
+    {
+         rb.linearVelocity = Vector2.up * flapForce;
     }
 }

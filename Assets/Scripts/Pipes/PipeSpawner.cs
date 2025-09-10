@@ -13,6 +13,9 @@ public class PipeSpawner : MonoBehaviour
 
     void Update()
     {
+        // Only spawn pipes if game is active
+        if (!GameManager.Instance.IsGameActive()) return;
+
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {

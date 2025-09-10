@@ -6,7 +6,10 @@ public class SlideLeft : MonoBehaviour
 
     void Update()
     {
-        // move the pipes left in a steady pace 
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        if (GameManager.Instance.IsGameActive())
+        {
+            // move the pipes left in a steady pace 
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
 }
