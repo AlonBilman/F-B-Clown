@@ -1,15 +1,23 @@
 using UnityEngine;
 
-public class SlideLeft : MonoBehaviour
+public class PipeSlider : MonoBehaviour
 {
-    public float speed = 1.5f; 
-
-    void Update()
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float offscreenOffset = 1f;
+    private float leftEdge;
+    private void Start()
     {
-        if (GameManager.Instance.IsGameActive())
+        leftEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - offscreenOffset;
+    }
+    private void Update()
+    {
+        if (!GameManager.Instance.IsGameActive()) return;
+        // slide pipe left
+        transform.position += Vector3.left * speed * Time.deltaTime;
+        // deactivate pipe if out of frame and set it inactive for pooling
+        if (transform.position.x < leftEdge)
         {
-            // move the pipes left in a steady pace 
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            gameObject.SetActive(false); 
         }
     }
 }

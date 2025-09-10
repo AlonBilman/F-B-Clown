@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
     public GameObject menuCanvas;
     public GameObject gameOverCanvas;
     public GameObject pipeSpawner;
@@ -69,7 +68,6 @@ public class GameManager : MonoBehaviour
     private void SetState(GameState newState)
     {
         currentState = newState;
-
         menuCanvas.SetActive(newState == GameState.Menu);
         gameOverCanvas.SetActive(newState == GameState.GameOver);
         pipeSpawner.SetActive(newState == GameState.Playing);
