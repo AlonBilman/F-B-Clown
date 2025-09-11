@@ -1228,21 +1228,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106971328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c33e416ab7d1348a896dcc120f14dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 67bd088ebcedaf54ea5cde5b31a58afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberSprites:
-  - {fileID: 5088316998373936774, guid: 6223dbbd493cc1246acc3ffcd4dbe8ae, type: 3}
-  - {fileID: -855298285791758126, guid: 99a4f5bbf8e4a354292ad7e2f16183fb, type: 3}
-  - {fileID: 6937817954938267909, guid: e30ed8e4179dda947b9652713e9141d4, type: 3}
-  - {fileID: -6470460504253458178, guid: 8de5c47dce498ca4c8811a4e7553bc68, type: 3}
-  - {fileID: -4178046375966092550, guid: 77ffdf52d16b4f14185c45ba16c1f9d0, type: 3}
-  - {fileID: 4130640169021434097, guid: 2939b5753d869e347acfe42d4e9fa902, type: 3}
-  - {fileID: 3465286685962602723, guid: b0b73539c0887e542813bf57ec79c506, type: 3}
-  - {fileID: 7028616704906629411, guid: dea4f2c2aa545d243b2e5d9288b51ada, type: 3}
-  - {fileID: 4113829005332862926, guid: 24aaeefaaaefc7e419e0d5e9701e2bb2, type: 3}
-  scoreContainer: {fileID: 0}
-  digitPrefab: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!4 &1106971330
 Transform:
   m_ObjectHideFlags: 0
