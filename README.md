@@ -18,4 +18,7 @@ A simple Flappy Bird Game clone built in Unity.
 
 ## Note
 *For the love of God, I couldn't change the name of the sample scene...* 😅
+
 *Sprites were shamelessly stolen from [here](https://github.com/samuelcust/flappy-bird-assets/tree/master/sprites)*
+
+Please use 9:16 Aspect :) 
