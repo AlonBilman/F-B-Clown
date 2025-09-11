@@ -485,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flapForce: 3.7
   fallTilt: -20
+  heightCapY: 4
 --- !u!70 &280094619
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

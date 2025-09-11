@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BirdFlight : MonoBehaviour
 {
-    public float flapForce = 5f;
-    public float fallTilt = -20f;
-    Rigidbody2D rb;
+    [SerializeField] private float flapForce = 5f;
+    [SerializeField] private float fallTilt = -20f;
+    [SerializeField] private float heightCapY = 4f;
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -16,7 +17,11 @@ public class BirdFlight : MonoBehaviour
         if (GameManager.Instance.IsGameActive())
         {
             // flap on space, mouse click, or up arrow
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            // + height cap
+            if ((Input.GetMouseButtonDown(0)
+                || Input.GetKeyDown(KeyCode.Space)
+                || Input.GetKeyDown(KeyCode.UpArrow))
+                && transform.position.y < heightCapY)
                 Jump();
         }
 
