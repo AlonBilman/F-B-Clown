@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI highScoreText; // optional UI for best score
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     private int currentScore = 0;
     private int highScore = 0;
@@ -26,6 +26,16 @@ public class ScoreManager : MonoBehaviour
 
         ResetScore();
         UpdateHighScoreDisplay();
+        hideCurrGameScore();
+    }
+
+    private void Update()
+    {
+        // When the game becomes active, show the score
+        if (GameManager.Instance.IsGameActive() && !scoreText.gameObject.activeSelf)
+        {
+            scoreText.gameObject.SetActive(true);
+        }
     }
 
     public void AddPoint()
@@ -34,7 +44,6 @@ public class ScoreManager : MonoBehaviour
         {
             currentScore++;
 
-            // new high score?
             if (currentScore > highScore)
             {
                 highScore = currentScore;
@@ -51,6 +60,7 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore = 0;
         UpdateScoreDisplay();
+        hideCurrGameScore();
     }
 
     private void UpdateScoreDisplay()
@@ -63,5 +73,11 @@ public class ScoreManager : MonoBehaviour
     {
         if (highScoreText != null)
             highScoreText.text = $"Best Score: {highScore}";
+    }
+
+    private void hideCurrGameScore()
+    {
+        if (scoreText != null)
+            scoreText.gameObject.SetActive(false);
     }
 }
