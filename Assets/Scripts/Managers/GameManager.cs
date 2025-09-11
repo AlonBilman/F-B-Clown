@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public GameObject menuCanvas;
-    public GameObject gameOverCanvas;
-    public GameObject pipeSpawner;
-    public GameObject bird;
+    [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject pipeSpawner;
+    [SerializeField] private GameObject bird;
 
     private enum GameState { Menu, Playing, GameOver }
     private GameState currentState;
