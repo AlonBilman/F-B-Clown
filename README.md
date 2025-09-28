@@ -17,7 +17,6 @@ A simple Flappy Bird Game clone built in Unity.
 - **Object Pooling**: Pipe spawning system
 
 ## Note
-*For the love of God, I couldn't change the name of the sample scene...* 😅
 
 *Sprites were shamelessly stolen from [here](https://github.com/samuelcust/flappy-bird-assets/tree/master/sprites)*
 
